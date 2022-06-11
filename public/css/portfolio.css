@@ -1,0 +1,270 @@
+.portfolio__intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding-top: 50px;
+
+  width: 100%;
+  height: 100%;
+  min-height: 820px;
+  /* min-width: 300px; */
+  position: relative;
+
+  background: url("../images/portfolio.jpg") center no-repeat;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+.intro__title,
+.intro__subtitle {
+  color: #fff;
+}
+
+.section__header {
+  padding-bottom: 30px;
+}
+
+/* Service Type Switch */
+
+/*Switch*/
+.switch {
+  position: relative;
+  width: 260px;
+  height: 50px;
+  display: block;
+  margin: auto;
+  margin-bottom: auto;
+}
+
+.switch input {
+  display: none;
+}
+
+.switch-slider.round {
+  border-radius: 50px;
+}
+
+.switch-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border: 2px solid #000;
+}
+
+/*Moving SLider Section*/
+.switch-slider::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 50%;
+  left: -1px;
+  bottom: 0;
+  background-color: #000;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50px;
+}
+
+/*Slider Text*/
+.slider_text {
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  font-size: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.slider_text > span {
+  color: #fff;
+  font-size: 18px;
+  width: 50%;
+  display: block;
+  float: left;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+/*Changes on Slide*/
+input:checked + .switch-slider::before {
+  -webkit-transform: translateX(130px);
+  -ms-transform: translateX(130px);
+  transform: translateX(130px);
+}
+
+input:checked + .switch-slider .off {
+  color: #000;
+}
+
+input:checked + .switch-slider .on {
+  color: #fff;
+}
+
+.switch-slider .slider_text .on {
+  color: #000;
+}
+
+/* GALLERY */
+.gallery {
+  margin-top: 30px;
+}
+
+#exterior, 
+#interior,
+#examples {
+  display: none;
+}
+
+#exterior.active {
+  display: flex;
+}
+
+#interior.active {
+  display: flex;
+}
+
+.gallery_inner {
+  display: flex;
+  justify-content: center;
+  /* flex-direction: row; */
+  flex-wrap: wrap;
+}
+
+.category__item,
+.example__item {
+  height: 350px;
+  margin: 10px 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.category__item img,
+.example__item img {
+  width: 350px;
+  height: 350px;
+
+  border-radius: 20px;
+}
+
+.item__bottom {
+  position: absolute;
+  bottom: 0;
+  width: 350px;
+
+  padding: 7px 20px;
+
+  background: #fff;
+  color: #000;
+  
+  border-radius: 20px;
+  border: 1px solid #000;
+
+  font-size: 17px;
+  text-transform: capitalize;
+  font-weight: 400;
+
+}
+
+.item__more {
+  visibility: hidden;
+  transition: .2s all;
+}
+
+.category__item:hover > .item__more {
+  visibility: visible;
+  background: #000;
+  color: #fff;
+}
+
+#examples {
+  display: none;
+}
+
+#btn-back {
+  display: none;
+  width: 160px;
+  margin: 30px;
+}
+
+.example__item::after {
+  content: "";
+  color: #fff;
+  font-size: 18px;
+  align-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  background: #000;
+  opacity: .5;
+  border-radius: 20px;
+  visibility: hidden;
+}
+
+.example__item:hover.example__item::after {
+  visibility: visible;
+}
+
+.item__title {
+  font-size: 24px;
+  color: #fff;
+  text-transform: uppercase;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+  z-index: 1000;
+}
+
+.example__item:hover .item__title {
+  visibility: visible;
+}
+
+@media (max-width: 1230px) {
+  /* Interior gallery */
+  .interior__item:last-child {
+    margin-top: 25px;
+  }
+
+}
+
+@media (max-width: 770px) {
+  /* Intro */
+  .intro__title {
+    font-size: 72px;
+  }
+
+  .intro__subtitle {
+    font-size: 20px;
+  }
+
+  /* Interior gallery */
+  .interior__item {
+    margin-top: 25px;
+  }
+
+}
+
+@media (max-width: 575px) {
+  #btn-back {
+    position: fixed;
+    z-index: 100;
+    margin: 0;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
